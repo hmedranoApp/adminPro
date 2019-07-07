@@ -4,10 +4,12 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { ProgressComponent } from './progress/progress.component';
 import { Graficas1Component } from './graficas1/graficas1.component';
 import { AccoutSettingsComponent } from './accout-settings/accout-settings.component';
+import { LoginGuardGuard } from '../services/guards/login-guard.guard';
 
 
 const pagesRoutes: Routes = [
     {path: '', component: PagesComponent,
+        canActivate: [ LoginGuardGuard ],
         children: [
             {path: 'dashboard', component: DashboardComponent},
             {path: 'progress', component: ProgressComponent},
